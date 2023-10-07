@@ -1,0 +1,7 @@
+Django Template form loop:
+for loop.counter = THe current iteration of the loop (1-indexed)
+for loop.counter0 = The current iteration of the looop(0-indexed)
+forloop.revcounter = The number of iteration from the end of the loop (1-indexed)
+forloop.revcounter() = The number of iterations from the end of the loop(0-indexed)
+forloop.first = True if this is the first time through the loop
+forloop.last = True if this is the last time through the loop

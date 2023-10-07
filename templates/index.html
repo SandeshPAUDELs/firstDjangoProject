@@ -3,10 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{title}}</title>
 </head>
 <body>
     <h1>hello</h1>
-    
+    {% for n in class %}
+    <div>{{n}}</div>
+    {% endfor %}
+    {% for n in class %}
+    <div>{{forloop.counter}}{{n}}</div>
+    {% endfor %}
+    {% for n in class %}
+    <div>{{forloop.counter0}}{{n}}</div>
+    {% endfor %}
+    <p>{{bodyData}}</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>age</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for n in userDetails %}
+        <tr>
+            <td>{{n.name}}</td>
+            <td>{{n.age}}</td>
+        </tr>
+        
+        </tbody>
+        {% endfor %}
+    </table>
+    {% for n in numbers %}
+    <div>{{n}}</div>
+    {% endfor %}
 </body>
 </html>
