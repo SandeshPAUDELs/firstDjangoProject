@@ -1,12 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type = "style/css" href="{% static 'style.css' %}">
+
     <title>{{title}}</title>
 </head>
 <body>
-    <h1>hello</h1>
+    <h1 class = "h1">hello</h1>
     {% for n in class %}
     <div>{{n}}</div>
     {% endfor %}
@@ -35,8 +39,6 @@
         </tbody>
         {% endfor %}
     </table>
-    {% for n in numbers %}
-    <div>{{n}}</div>
-    {% endfor %}
+    
 </body>
 </html>
