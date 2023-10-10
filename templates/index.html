@@ -1,44 +1,89 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" type = "style/css" href="{% static 'style.css' %}">
-
-    <title>{{title}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-o55XaARzq3Hu6z5h5ne93GmYNtV2C5RbOvF+E1tEm8ALf5d4v2foAz3Q5F5Iz5zP" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>{{ title }}</title>
 </head>
 <body>
-    <h1 class = "h1">hello</h1>
+    <h1>Hello</h1>
+    
+    <!-- Display items from the 'class' variable -->
     {% for n in class %}
-    <div>{{n}}</div>
+        <div>{{ n }}</div>
     {% endfor %}
+    
+    <!-- Display items from the 'class' variable with loop counters -->
     {% for n in class %}
-    <div>{{forloop.counter}}{{n}}</div>
+        <div>{{ forloop.counter }}{{ n }}</div>
     {% endfor %}
+    
+    <!-- Display items from the 'class' variable with zero-based loop counters -->
     {% for n in class %}
-    <div>{{forloop.counter0}}{{n}}</div>
+        <div>{{ forloop.counter0 }}{{ n }}</div>
     {% endfor %}
-    <p>{{bodyData}}</p>
+    
+    <!-- Display the 'bodyData' variable -->
+    <p>{{ bodyData }}</p>
 
     <table>
         <thead>
-        <tr>
-            <th>name</th>
-            <th>age</th>
-        </tr>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
         </thead>
         <tbody>
-        {% for n in userDetails %}
-        <tr>
-            <td>{{n.name}}</td>
-            <td>{{n.age}}</td>
-        </tr>
-        
+            <!-- Display user details from the 'userDetails' variable -->
+            {% for user in userDetails %}
+                <tr>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.age }}</td>
+                </tr>
+            {% endfor %}
         </tbody>
-        {% endfor %}
     </table>
     
+ 
+                        <form id="form1" onsubmit="submitForm(event)">
+                            <input type="text" placeholder="Enter something...">
+                            <label for=""></label>
+                            <br>
+                            <input type="text" placeholder="Enter something...">
+                            <br>
+                            <label for=""></label>
+                            <br>
+                            <input type="text" placeholder="Enter something...">
+                            <br>
+                            <label for=""></label>
+                            <br>
+                            <input type="text" placeholder="Enter something...">
+                            <br>
+                            <label for=""></label>
+                            <br>
+                            <input type="text" placeholder="Enter something...">
+                            <br>
+                            <label for=""></label>
+                            <br>
+                            <input type="text" placeholder="Enter something...">
+                            <br>
+                            <label for=""></label>
+                            <br>
+                            <input type="text" placeholder="Enter something...">
+                            <br>
+                            <label for=""></label>
+                            <br>
+                            <input type="text" placeholder="Enter something...">
+                            <br>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js" integrity="sha384-jZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYlT" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="{% static 'script.js' %}"></script>
 </body>
 </html>
