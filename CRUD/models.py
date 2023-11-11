@@ -7,5 +7,5 @@ class Employees(models.Model):
     address = models.CharField(max_length=50)
     phone = models.IntegerField(validators=[MaxValueValidator(9999999999)])
 
-    # def __str__(self):
-    #     return self.name
+    def __str__(self):
+        return self.name
