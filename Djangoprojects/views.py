@@ -47,12 +47,7 @@ def edit(request, emp_id):
 
 
 def delete(request, emp_id):
-    employee = Employees.objects.get(id=emp_id)
+    employee = Employees.objects.filter(id=emp_id).delete()
+    context = {'employee': employee}    
 
-    if request.method == 'POST':
-        # Handle form submission and delete the employee data
-        employee.delete()
-        return redirect('homePage')
-
-    context = {'employee': employee}
-    return render(request, 'delete.html', context)
+    return redirect(request, 'index.html', context)

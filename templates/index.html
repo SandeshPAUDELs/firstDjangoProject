@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'static/style.css' %}">
@@ -58,7 +60,7 @@
 						<td>{{ i.phone }}</td>
 						<td>
 							<a href="#editEmployeeModal-{{forloop.counter}}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a href="#deleteEmployeeModal-{{forloop.counter}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 					</tr>
 				
@@ -106,7 +108,7 @@
 	</div>
 	<!-- Edit Modal HTML -->
 	{% for employee in emp %}
-	<div id="editEmployeeModal-{{ employee.id }}" class="modal fade">
+	<div id="editEmployeeModal-{{ forloop.counter }}" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form action="{% url 'edit' employee.id %}" method="post">
@@ -145,7 +147,7 @@
 
 	<!-- Delete Modal HTML -->
 	{% for employee in emp %}
-	<div id="deleteEmployeeModal-{{ employee.id }}" class="modal fade">
+	<div id="deleteEmployeeModal-{{ forloop.counter }}" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form action="{% url 'delete' employee.id %}" method="post">
@@ -167,6 +169,14 @@
 		</div>
 	</div>
 	{% endfor %}
+<script>
+    $(document).ready(function() {
+        // Assuming you have a form with the ID 'crudForm'
+        $('#crudForm').on('submit', function() {
+            location.reload(true);  // Reload the page
+        });
+    });
+</script>
 
 </body>
 </html>
