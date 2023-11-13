@@ -25,6 +25,11 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homePage),
+    path('add', views.add, name='add'),
+    path('edit/<int:emp_id>/', views.edit, name='edit'),
+    path('delete/<int:emp_id>/', views.delete, name='delete'),
+
+    # path('', views.homePage, name='homePage')
     # path('about_us', views.aboutUs),
     # path('another_url', views.aboutMe),
     # path('another_url/<courseid>', views.courseDetails)
